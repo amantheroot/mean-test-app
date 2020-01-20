@@ -1,1 +1,5 @@
-<li>{{ todo.title }}</li>
+<li [ngClass]="SetClasses()">
+  <input (change)="OnToggle(todo)" type="checkbox" [checked]="todo.completed">
+  {{ todo.title }}
+  <button (change)="OnDelete(todo)" class="del">x</button>
+</li>

@@ -4,7 +4,7 @@ import { Todo } from '../../models/Todo';
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
-  styleUrls: ['./todo-item.component.sass']
+  styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
@@ -12,6 +12,22 @@ export class TodoItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  SetClasses() {
+    const classes = {
+      todo: true,
+      'is-completed': this.todo.completed
+    };
+
+    return classes;
+  }
+
+  OnToggle(todo) {
+    todo.completed = !(todo.completed);
+  }
+  OnDelete(todo) {
+
   }
 
 }
